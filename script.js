@@ -5,7 +5,8 @@ function fetchRandomDogData() {
     var responsejson = JSON.parse(xhrRequest.response);
     var imageUrl = responsejson.message;
 $('#image-container').attr('src', imageUrl);
-
+        xhrRequest.onerror = function(){
+            console.log("Request Failder")}
 };
 
   xhrRequest.open("get", "https://dog.ceo/api/breeds/image/random", true);
